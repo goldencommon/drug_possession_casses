@@ -1,0 +1,79 @@
+{
+  "name": "CaseDrugExtraction",
+  "type": "json_schema",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "case_id": {
+        "type": "string"
+      },
+      "drugs": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name_std": {
+              "type": "string"
+            },
+            "name_raw": {
+              "type": "string"
+            },
+            "amount_grams": {
+              "type": "number"
+            },
+            "unit_raw": {
+              "type": "string"
+            },
+            "amount_raw_text": {
+              "type": "string"
+            },
+            "evidence_span": {
+              "type": "string"
+            },
+            "certainty": {
+              "type": "string",
+              "enum": [
+                "high",
+                "medium",
+                "low"
+              ]
+            }
+          },
+          "required": [
+            "name_std",
+            "name_raw",
+            "amount_grams",
+            "unit_raw",
+            "amount_raw_text",
+            "evidence_span",
+            "certainty"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "totals": {
+        "additionalProperties": false,
+        "type": "object",
+        "properties": {
+          "amount_grams_sum": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "amount_grams_sum"
+        ]
+      },
+      "notes": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false,
+    "required": [
+      "case_id",
+      "drugs",
+      "totals",
+      "notes"
+    ]
+  },
+  "strict": true
+}
