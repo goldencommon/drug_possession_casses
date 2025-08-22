@@ -59,7 +59,7 @@ df_summary.to_csv("data/summary_by_drug.csv", index=False, encoding="utf-8-sig")
 
 total_grams = float(sum(by_drug.values()))
 with open("data/TOTAL.txt","w",encoding="utf-8") as w:
-    w.write(f"总量(克): {{total_grams}}\n")
+    w.write(f"总量(克): {total_grams}\n")
 
 print("已写出：")
 print(" - 细项：data/details_per_evidence.csv")
